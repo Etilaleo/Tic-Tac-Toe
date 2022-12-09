@@ -13,7 +13,6 @@ import com.example.tic_tac_toe.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    //Start by doing this
     private var score1 = 0
     private var score2 = 0
     private var checkNought = "X"
@@ -170,6 +169,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    //For the toggle Menu
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (toggle.onOptionsItemSelected(item)) {
             return true
