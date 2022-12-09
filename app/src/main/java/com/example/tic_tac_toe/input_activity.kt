@@ -1,6 +1,5 @@
 package com.example.tic_tac_toe
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -19,22 +18,10 @@ class Input : AppCompatActivity() {
         val player1 = findViewById<EditText>(R.id.player1)
         val player2 = findViewById<EditText>(R.id.player2)
 
-
-        //Saving the inputs of the players so when not filled can be filled automatically
-        val sharedPref = getSharedPreferences("sharedPref", Context.MODE_PRIVATE)
-        val editor = sharedPref.edit()
-        editor.apply {
-            putString("player1", player1.text.toString())
-            putString("player2", player2.text.toString())
-            apply()
-        }
-
         submitBtn.setOnClickListener {
             Intent(this, MainActivity::class.java).also {
-                val newPlayer1 = sharedPref.getString("player1", "Leo")
-                val newPlayer2 = sharedPref.getString("player2", "Ralph")
-                it.putExtra("Name 1", newPlayer1)
-                it.putExtra("Name 2", newPlayer2)
+                it.putExtra("Name 1", player1.text.toString())
+                it.putExtra("Name 2", player2.text.toString())
                 startActivity(it)
             }
         }
